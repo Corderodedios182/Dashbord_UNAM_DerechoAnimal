@@ -9,14 +9,15 @@ import dash_core_components as dcc
 import dash_html_components as html
 
 import pandas as pd
-import plotly.graph_objects as go
 
+import plotly.graph_objects as go
 from utilsv0 import Header
+
 ####################
 #2 Importando datos#
 ####################
 
-encuestas = pd.read_csv('/home/carlos/Documentos/1_Dashbord_UNAM_DerechoAnimal/datos/encuestas.csv')
+encuestas = pd.read_csv('https://raw.githubusercontent.com/Corderodedios182/Dashbord_UNAM_DerechoAnimal/master/datos/encuestas.csv')
 
 #General
 Pregunta_1 = encuestas.loc[(encuestas.Pregunta == 1) & (encuestas.Facultad == "Veterinaria") ,'Respuesta_texto'].value_counts().reset_index()

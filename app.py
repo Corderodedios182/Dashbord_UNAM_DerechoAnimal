@@ -1,12 +1,8 @@
 # -*- coding: utf-8 -*-
-import os
-
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
-
-os.chdir('/home/carlos/Documentos/1_Dashbord_UNAM_DerechoAnimal')
 
 from librerias import (Muestra, Conclusiones, Que_sigue, Resultados)
 
