@@ -4,11 +4,10 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 
-from librerias import (Muestra, Conclusiones, Que_sigue, Resultados)
+from librerias import (Muestra, Conclusiones, Que_sigue, borrame)
 
 app = dash.Dash( __name__, meta_tags=[{"name": "viewport", "content": "width=device-width"}] )
 
-server = app.server
 
 # Describe the layout/ UI of the app
 app.layout = html.Div(
@@ -18,7 +17,7 @@ app.layout = html.Div(
 @app.callback(Output("page-content", "children"), [Input("url", "pathname")])
 def display_page(pathname):
     if pathname == "/Dash_Encuestas/Resultados":
-        return Resultados.create_layout(app)
+        return borrame.create_layout(app)
     elif pathname == "/Dash_Encuestas/Conclusiones":
         return Conclusiones.create_layout(app)
     elif pathname == "/Dash_Encuestas/Que_sigue":
@@ -27,4 +26,4 @@ def display_page(pathname):
         return Muestra.create_layout(app)
         
 if __name__ == "__main__":
-    app.run_server(debug = True)
+    app.run_server()
