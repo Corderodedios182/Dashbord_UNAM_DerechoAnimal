@@ -4,8 +4,8 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 
-#import os
-#os.chdir('/home/carlos/Documentos/1_Dashbord_UNAM_DerechoAnimal')
+import os
+os.chdir('/home/carlos/Documentos/1_Dashbord_UNAM_DerechoAnimal')
 from librerias import (Muestra, Conclusiones, Que_sigue, borrame)
 
 app = dash.Dash( __name__, meta_tags=[{"name": "viewport", "content": "width=device-width"}] )

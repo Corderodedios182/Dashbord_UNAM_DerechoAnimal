@@ -62,28 +62,23 @@ layout = html.Div(
                                      options = Facultades,
                                      value = "all",
                                      clearable=False),
-                        html.Div(dcc.Graph( figure='grafica'))
+                        dcc.Graph(id='grafica',animate=True)
                         ])
                 #Row 4
                     ], className="sub_page"),
                 ], className="page",)
 
 
-@app.callback(Output('grafica', 'children'),
+@app.callback(Output('grafica', 'figure'),
               [Input('facultad', 'value')])
 def display_content(facultad):
-    
+    facultad = 'Derecho'
     Pregunta_1 = encuestas.loc[(encuestas.Pregunta == 1) &
                                (encuestas.Facultad == facultad),'Respuesta_texto'].value_counts().reset_index()
 
     trace_1 = go.Pie(labels=Pregunta_1.loc[:,'index'], values=Pregunta_1.loc[:,'Respuesta_texto'])
-
-    layout_1 =  go.Layout(legend = {"x":0,"y":-.5},  margin=dict(l=23,r=18,b=53,t=73,),
-                          paper_bgcolor='rgb(223, 223, 223)', template = 'ggplot2')
                     
-    fig_1 = go.Figure(data = [trace_1], layout = layout_1)    
-    
-    return fig_1
+    return {'data':[trace_1]}
     
 
 
