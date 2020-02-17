@@ -45,8 +45,15 @@ tmp.loc[tmp['Edad'] == 16]
 
 #Facultades
 trace_0 = go.Pie(labels=conteo.loc[:,'Facultad'], values=conteo.loc[:,'encuestados'])
-layout_0 = go.Layout(legend = {"x":-1,"y":.5},  margin=dict(l=40,r=30,b=80,t=100,),
+layout_0 = go.Layout(legend = {"x":.9,"y":.5},  margin=dict(l=40,r=30,b=80,t=100,),
+                     title = 'Se encuestaron a 2013 alumnos en 14 facultades',
+                     annotations = [dict(xref='paper',
+                                        yref='paper',
+                                        x=0.5, y=-0.25,
+                                        showarrow=False,
+                                        text ='Con mayor participación de Veterinaria, Química, Ciencias, Derecho')],
                     paper_bgcolor='rgb(243, 243, 243)',
+                    template = 'ggplot2',
                     plot_bgcolor='rgb(243, 243, 243)')
 fig_0 = go.Figure(data = [trace_0], layout = layout_0)
 
@@ -76,7 +83,7 @@ fig_1.add_trace(go.Bar(
         )
 ))
 
-fig_1.update_layout(barmode='stack', title = 'Puedo colocar texto aquí', title_x = 0.45,
+fig_1.update_layout(barmode='stack', title = '55% Mujeres y 45% Hombres', title_x = 0.45,
                     margin=dict(l=40,r=30,b=80,t=100,),
                     paper_bgcolor='rgb(243, 243, 243)',
                     plot_bgcolor='rgb(243, 243, 243)')
@@ -96,7 +103,7 @@ fig_2.add_trace(go.Box(
     )
 
 fig_2.update_layout(
-    title = 'Puedo colocar texto aqui',
+    title = 'Rango de Edad entre 17-27 años',
     yaxis_title='Rango de Edades',
     yaxis=dict(
         autorange=True,
@@ -137,27 +144,11 @@ def create_layout(app):
                 html.Div([
                          html.Div([
                                     html.P(
-                                            "La presente encuesta se realizó a los alumnos de las facultades de la Universidad Nacional Autónoma de México (UNAM) \
-                                            con la finalidad de conocer las opiniones y conocimiento que tienen sobre el derecho animal y la importancia de éste para la defensa de  \
-                                            los animales en México." ) ,
+                                            "La presente encuesta se realizó a los alumnos de las facultades de la Universidad Nacional Autónoma de México (UNAM) con la finalidad de conocer las opiniones y conocimiento que tienen sobre el derecho animal y la importancia de éste para la defensa de los animales en México." ),
                                     html.P(        
-                                            "Se estudiaron a fondo las respuestas de los alumnos encuestados de la Facultad de Derecho, de la Facultad de Medicina Veterinaria y Zootecnia y de la Facultad de Ciencias, \
-                                            debido a que en estas facultades el estudio, trato y manejo de los animales es sustancial para crear investigaciones interdisciplinarias en el campo del derecho animal."),
-                                    html.P(
-                                            "Los siguientes datos son de considerable interés para la presente investigación, ya que la comunidad universitaria desempeñará un papel fundamental en distintos sectores \
-                                            de la sociedad, en los cuales los animales representan un fin en sí mismo o un recurso.") ,
-                                    html.P(
-                                            "Per se, la profesionalización y capacitación hacia la comunidad universitaria en temas de bienestar animal y derecho animal resulta necesaria para entender \
-                                            el trato y cuidado de los animales; las implicaciones jurídicas que se derivan de los actos civiles-mercantiles y las limitaciones que se tienen en materia civil." ),
-                                    html.P(
-                                            "Si bien en el Código Civil Federal mexicano, los animales son definidos como cosas (partiendo de una visión románica-germánica derivada de la época de Gayo y Justiniano), \
-                                            la comunidad científica ha logrado comprobar que la conciencia es un fundamento clave para la protección jurídica de los animales (Declaración de Cambridge sobre la Conciencia)."),
-                                    html.P(        
-                                            "Con el estudio de las regiones del encéfalo y diecénfalo de un animal vertebrado se puede constatar que en ellas se presentan funciones como el miedo, la agresión, los afectos, \
-                                            la memoria emocional, los estados de ánimo, la percepción consciente y la localización del dolor; así como el hambre, la sed, el impulso sexual y la expresión de las emociones. \
-                                            Por lo que ha quedado demostrado que los animales al igual que los seres humanos son capaces de sentir dolor y no son máquinas sin memoria, como lo expuso Descartes." ,
-                                            style={"color": "#ffffff"},
-                                        className="row")],
+                                            "La profesionalización y capacitación hacia la comunidad universitaria en temas de bienestar animal y derecho animal resulta necesaria para entender el trato y cuidado de los animales, las implicaciones jurídicas que se derivan de los actos civiles-mercantiles y las limitaciones que se tienen en materia civil."),
+                                    
+                                    ],
                          className="product")],
                         className="row"),
                 #Row 4
@@ -169,7 +160,7 @@ def create_layout(app):
                                 [
                                     html.H6("Porcentaje Muestra por Facultades UNAM", className="subtitle padded"),
                                     dcc.Graph(id='plot_0',figure = fig_0)
-                                ],  className="six columns",  style={'width': '50%', 'align': 'right', 'display': 'inline-block'}
+                                ]
                                     ),
                             ],
                           className = "row",

@@ -15,20 +15,15 @@ def Header(app):
 def get_header(app):
     header = html.Div([
                 html.Div([
-                    html.Img(
-                        src=app.get_asset_url("derecho-animal.jpg"),
-                        style={'height':'5%', 'width':'5%'},
-                        className = "logo")],
-                    className="row"),
-                html.Div([
                     html.Div(
-                        [html.H5("Análisis estadístico sobre derecho animal")],
+                        [html.H5("Análisis estadístico sobre derecho animal",style={'text-align': 'center'})],
                         className="seven columns main-title"),
                     html.Div([
-                            dcc.Link(
-                                "Logo UNAM",
-                                href="https://www.facebook.com/tere.baena.1",
-                                className="full-view-link")],
+                        html.Img(
+                        src=app.get_asset_url("unam.png"),
+                        style={'height':'90%', 'width':'90%', 'display': 'inline-block'},
+                        className = "logo")
+                            ],
                         className="five columns")],
                 className="twelve columns",
                 style={"padding-left": "0"})
