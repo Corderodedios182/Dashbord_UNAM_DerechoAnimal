@@ -15,7 +15,7 @@ from utilsv0 import Header
 ####################
 #2 Importando datos#
 ####################
-
+#encuestas = pd.read_csv('/home/carlos/Documentos/1_Dashbord_UNAM_DerechoAnimal/datos/encuestas.csv')
 encuestas = pd.read_csv('https://raw.githubusercontent.com/Corderodedios182/Dashbord_UNAM_DerechoAnimal/master/datos/encuestas.csv')
 
 #General
@@ -75,7 +75,7 @@ fig_1.add_trace(go.Bar(
     x=Mujeres['Facultad'],
     y=Mujeres['encuestados'],
     name='Mujeres',
-    text = Masculino['encuestados'],
+    text = Mujeres['encuestados'],
     textposition = 'auto',
     marker=dict(
         color='rgba(246, 78, 139, 0.6)',

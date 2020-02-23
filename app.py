@@ -4,6 +4,11 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 
+#Modo local
+#import os
+#os.chdir('/home/carlos/Documentos/1_Dashbord_UNAM_DerechoAnimal')
+#
+
 from librerias import (Muestra, Conclusiones, Que_sigue, Resultados)
 
 app = dash.Dash( __name__, meta_tags=[{"name": "viewport", "content": "width=device-width"}] )
@@ -27,4 +32,4 @@ def display_page(pathname):
         return Muestra.create_layout(app)
         
 if __name__ == "__main__":
-    app.run_server(debug = True)
+    app.run_server()
