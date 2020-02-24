@@ -26,7 +26,7 @@ def create_layout(app):
                         [
                             html.Div(
                                 [
-                                    html.H6("Puntos de la línea de investigación", className="subtitle padded"),
+                                    html.H6("¿Qué se necesita para una protección animal a nivel federal más amplia?", className="subtitle padded"),
                                     html.Br([]),
                                 ],
                                 className="row",

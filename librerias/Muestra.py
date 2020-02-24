@@ -51,7 +51,7 @@ layout_0 = go.Layout(legend = {"x":.9,"y":.5},  margin=dict(l=40,r=30,b=80,t=100
                                         yref='paper',
                                         x=0.5, y=-0.25,
                                         showarrow=False,
-                                        text ='Con mayor participación de Veterinaria, Química, Ciencias, Derecho')],
+                                        text ='Con mayor participación de las facultades de Veterinaria, Química, Ciencias, Derecho')],
                     paper_bgcolor='rgb(243, 243, 243)',
                     template = 'ggplot2',
                     plot_bgcolor='rgb(243, 243, 243)')
@@ -83,7 +83,7 @@ fig_1.add_trace(go.Bar(
         )
 ))
 
-fig_1.update_layout(barmode='stack', title = '55% Mujeres y 45% Hombres', title_x = 0.45,
+fig_1.update_layout(barmode='stack', title = '55% Mujeres y 45% Hombres', title_x = 0.50,
                     margin=dict(l=40,r=30,b=80,t=100,),
                     paper_bgcolor='rgb(243, 243, 243)',
                     plot_bgcolor='rgb(243, 243, 243)')
@@ -104,6 +104,7 @@ fig_2.add_trace(go.Box(
 
 fig_2.update_layout(
     title = 'Rango de Edad entre 17-27 años',
+    title_x = 0.50,
     yaxis_title='Rango de Edades',
     yaxis=dict(
         autorange=True,

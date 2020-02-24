@@ -23,7 +23,9 @@ encuestas = pd.read_csv('https://raw.githubusercontent.com/Corderodedios182/Dash
 Pregunta_1 = encuestas.loc[(encuestas.Pregunta == 1) ,'Respuesta_texto'].value_counts().reset_index()
 Pregunta_2 = encuestas.loc[(encuestas.Pregunta == 2) ,'Respuesta_texto'].value_counts().reset_index()
 Pregunta_3 = encuestas.loc[(encuestas.Pregunta == 3) ,'Respuesta_texto'].value_counts().reset_index()
+Pregunta_3.sort_values(by = ['index'], inplace = True)
 Pregunta_4 = encuestas.loc[(encuestas.Pregunta == 4) ,'Respuesta_texto'].value_counts().reset_index()
+Pregunta_4.sort_values(by = ['index'], inplace = True)
 
 Pregunta_5 = encuestas.loc[(encuestas.Pregunta == 5) ,'Respuesta_texto'].value_counts().reset_index()
 Pregunta_6 = encuestas.loc[(encuestas.Pregunta == 6) ,'Respuesta_texto'].value_counts().reset_index()
@@ -32,6 +34,7 @@ Pregunta_8 = encuestas.loc[(encuestas.Pregunta == 8) ,'Respuesta_texto'].value_c
 
 Pregunta_9 = encuestas.loc[(encuestas.Pregunta == 9)   ,'Respuesta_texto'].value_counts().reset_index()
 Pregunta_10 = encuestas.loc[(encuestas.Pregunta == 10) ,'Respuesta_texto'].value_counts().reset_index()
+Pregunta_10.sort_values(by = ['index'], inplace = True)
 Pregunta_11 = encuestas.loc[(encuestas.Pregunta == 11) ,'Respuesta_texto'].value_counts().reset_index()
 Pregunta_12 = encuestas.loc[(encuestas.Pregunta == 12) ,'Respuesta_texto'].value_counts().reset_index()
 
@@ -42,8 +45,7 @@ Pregunta_12 = encuestas.loc[(encuestas.Pregunta == 12) ,'Respuesta_texto'].value
 #Facultades
 trace_1 = go.Pie(labels=Pregunta_1.loc[:,'index'], values=Pregunta_1.loc[:,'Respuesta_texto'])
 layout_1 =  go.Layout(legend = {"x":0,"y":-.5},  margin=dict(l=23,r=18,b=53,t=73,),
-                    paper_bgcolor='rgb(223, 223, 223)', template = 'ggplot2'
-                    )
+                    paper_bgcolor='rgb(223, 223, 223)', template = 'ggplot2')
 fig_1 = go.Figure(data = [trace_1], layout = layout_1)
 
 trace_2 = go.Pie(labels=Pregunta_2.loc[:,'index'], values=Pregunta_2.loc[:,'Respuesta_texto'])
@@ -124,12 +126,10 @@ def create_layout(app):
                         [
                             html.Div(
                                 [
-                                    html.H5("Tenemos lo Resultados Siguientes"),
+                                    html.H6("Tenemos los resultados siguientes",style={'text-align': 'center'}),
                                     html.Br([]),
                                     html.P(
-                                        "",
-                                        style={"color": "#ffffff"},
-                                        className="row",
+                                        "Es interesante ver como la mayoría nos preocupamos por los animales, pero lamentablemente existe una gran desinformación sobre los procesos judiciales, de igual forma nuestras autoridades no ven de interés los derechos de los animales",
                                     ),
                                 ],
                                 className="product",
@@ -179,7 +179,7 @@ def create_layout(app):
                         [
                             html.Div(
                                 [
-                                    html.H6("¿Cómo crees qué es defendido un animal en las leyes mexicanas y el Código Civil Femeninoederal?", className="subtitle padded"),
+                                    html.H6("¿Cómo crees qué es defendido un animal en las leyes mexicanas y el Código Civil Federal?", className="subtitle padded"),
                                     dcc.Graph(id='plot_5',figure = fig_5)
                                 ],  className="six columns", style={'width': '50%', 'display': 'inline-block'}
                                     ),
